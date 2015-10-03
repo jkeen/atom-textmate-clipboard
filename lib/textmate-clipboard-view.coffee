@@ -6,7 +6,7 @@ class TextmateClipboard extends SelectListView
   editor: null
   forceClear: false
   workspaceView: atom.views.getView(atom.workspace)
-  
+
   # Public methods
   ###############################
   initialize: (@history, @editorView) ->
@@ -39,7 +39,7 @@ class TextmateClipboard extends SelectListView
 
   pastePrevious: ->
     @_addIfNonExistent atom.clipboard.read()
-    if (@pasteCursor < (@history.length - 1))
+    if (@pasteCursor < (@history.length - 2)) # the last one is a "clear history button"
       @pasteCursor++
     @paste()
 
